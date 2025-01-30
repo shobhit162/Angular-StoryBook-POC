@@ -1,0 +1,9 @@
+<div
+  [ngClass]="classes"
+  *ngFor="let card of cards; let i = index"
+  [ngStyle]="{ width: width, height: height }"
+  (click)="onCardClick(i)"
+>
+    <h3 [ngStyle]="{'font-size': size}">{{ card.title }}</h3>
+    <p [ngStyle]="{'font-size': size}">{{ card.description }}</p>
+</div>
