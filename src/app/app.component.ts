@@ -12,10 +12,36 @@ import { InputComponent } from './components/input/input.component';
 export class AppComponent {
   title = 'angular-storybook';
 
-  handleCardClick(event: any) {
-    console.log('Card clicked:', event);
+  twoCards = [
+    { title: 'Card 1', description: 'Description for card 1' },
+    { title: 'Card 2', description: 'Description for card 2' },
+  ];
+
+  threeCards = [
+    { title: 'Card 1', description: 'This is the description of card 1.' },
+    { title: 'Card 2', description: 'This is the description of card 2.' },
+    { title: 'Card 3', description: 'This is the description of card 3.' },
+  ];
+
+  smallCards = [
+    { title: 'Card A', description: 'Small card description for A.' },
+    { title: 'Card B', description: 'Small card description for B.' },
+  ];
+
+  noCards: any[] = [];
+
+  clickableCard = [
+    {
+      title: 'Interactive Card',
+      description: 'Click me to see the event in console.log.',
+    },
+  ];
+
+
+  onCardClick(cardData: any) {
+    console.log('Card clicked:', cardData);
   }
-  handleInputChannge(event: any) {
+  onValueChange(event: any) {
     console.log('Input changed:', event);
   }
 }
