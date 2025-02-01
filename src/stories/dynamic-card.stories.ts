@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from '@storybook/test';
 
-import { DynamicCardComponent } from '../app/components/dynamic-card/dynamic-card.component';
+import { DynamicCardComponent } from '../lib/components/dynamic-card/dynamic-card.component';
 
 const meta: Meta<DynamicCardComponent> = {
   title: 'Dynamic-Card-Component',

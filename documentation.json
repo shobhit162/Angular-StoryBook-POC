@@ -35,7 +35,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-696756b6ba9bffe3c9bc7f39a959507ab137932fff406cbc24bddc2413dec6aea499fb4774010a32f47607df83bf0dc51b3e9994d34ab64bb220e349da29ad20",
+            "id": "component-AppComponent-0a33f31eb17af8b32cffe519f4a796766792cf5634282912c98436a997c02c67f8727690b66122ed9606d905b248e7d62133672fc648e3834c8f5f88018e9e73",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -54,6 +54,50 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "clickableCard",
+                    "defaultValue": "[\n    {\n      title: 'Interactive Card',\n      description: 'Click me to see the event in console.log.',\n    },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "noCards",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "smallCards",
+                    "defaultValue": "[\n    { title: 'Card A', description: 'Small card description for A.' },\n    { title: 'Card B', description: 'Small card description for B.' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "threeCards",
+                    "defaultValue": "[\n    { title: 'Card 1', description: 'This is the description of card 1.' },\n    { title: 'Card 2', description: 'This is the description of card 2.' },\n    { title: 'Card 3', description: 'This is the description of card 3.' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
                     "name": "title",
                     "defaultValue": "'angular-storybook'",
                     "deprecated": false,
@@ -62,12 +106,51 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
+                },
+                {
+                    "name": "twoCards",
+                    "defaultValue": "[\n    { title: 'Card 1', description: 'Description for card 1' },\n    { title: 'Card 2', description: 'Description for card 2' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "handleCardClick",
+                    "name": "onCardClick",
+                    "args": [
+                        {
+                            "name": "cardData",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "cardData",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onValueChange",
                     "args": [
                         {
                             "name": "event",
@@ -79,7 +162,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -107,18 +190,22 @@
                 {
                     "name": "DynamicCardComponent",
                     "type": "component"
+                },
+                {
+                    "name": "InputComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { DynamicCardComponent } from './components/dynamic-card/dynamic-card.component';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, DynamicCardComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.css'\n})\nexport class AppComponent {\n  title = 'angular-storybook';\n\n  handleCardClick(event: any) {\n    console.log('Card clicked:', event);\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { DynamicCardComponent } from './components/dynamic-card/dynamic-card.component';\nimport { InputComponent } from './components/input/input.component';\n\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet, DynamicCardComponent, InputComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.css'\n})\nexport class AppComponent {\n  title = 'angular-storybook';\n\n  twoCards = [\n    { title: 'Card 1', description: 'Description for card 1' },\n    { title: 'Card 2', description: 'Description for card 2' },\n  ];\n\n  threeCards = [\n    { title: 'Card 1', description: 'This is the description of card 1.' },\n    { title: 'Card 2', description: 'This is the description of card 2.' },\n    { title: 'Card 3', description: 'This is the description of card 3.' },\n  ];\n\n  smallCards = [\n    { title: 'Card A', description: 'Small card description for A.' },\n    { title: 'Card B', description: 'Small card description for B.' },\n  ];\n\n  noCards: any[] = [];\n\n  clickableCard = [\n    {\n      title: 'Interactive Card',\n      description: 'Click me to see the event in console.log.',\n    },\n  ];\n\n\n  onCardClick(cardData: any) {\n    console.log('Card clicked:', cardData);\n  }\n  onValueChange(event: any) {\n    console.log('Input changed:', event);\n  }\n}\n",
             "styleUrl": "./app.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<h3>Angular Storybook POC (Proof of Concept)</h3>\n<app-dynamic-card\n  [cards]=\"[\n    { title: 'Card 1', description: 'Description 1' },\n    { title: 'Card 2', description: 'Description 2' }\n  ]\"\n  (cardClick)=\"handleCardClick($event)\"\n></app-dynamic-card>"
+            "templateData": "<h3>Angular Storybook POC (Proof of Concept)</h3>\n\n<div>\n  <h2>Two Cards</h2>\n  <app-dynamic-card\n    [cards]=\"twoCards\"\n    width=\"300px\"\n    height=\"200px\"\n    size=\"medium\"\n    (cardClick)=\"onCardClick($event)\"\n  ></app-dynamic-card>\n\n  <h2>Three Cards</h2>\n  <app-dynamic-card\n    [cards]=\"threeCards\"\n    width=\"350px\"\n    height=\"250px\"\n    size=\"large\"\n    (cardClick)=\"onCardClick($event)\"\n  ></app-dynamic-card>\n\n  <h2>Small Cards</h2>\n  <app-dynamic-card\n    [cards]=\"smallCards\"\n    width=\"200px\"\n    height=\"150px\"\n    size=\"small\"\n    (cardClick)=\"onCardClick($event)\"\n  ></app-dynamic-card>\n\n  <h2>No Cards</h2>\n  <app-dynamic-card\n    [cards]=\"noCards\"\n    width=\"300px\"\n    height=\"200px\"\n    size=\"medium\"\n  ></app-dynamic-card>\n\n  <h2>Single Card</h2>\n  <app-dynamic-card\n    [cards]=\"clickableCard\"\n    width=\"300px\"\n    height=\"200px\"\n    size=\"medium\"\n    (cardClick)=\"onCardClick($event)\"\n  ></app-dynamic-card>\n</div>\n\n<div>\n  <h2>Medium Input</h2>\n  <app-input\n    [width]=\"'100px'\"\n    [height]=\"'20px'\"\n    (valueChange)=\"onValueChange($event)\"\n  ></app-input>\n\n  <h2>Large Input</h2>\n  <app-input\n    [width]=\"'200px'\"\n    [height]=\"'40px'\"\n    (valueChange)=\"onValueChange($event)\"\n  ></app-input>\n\n  <h2>Small Input</h2>\n  <app-input\n    [width]=\"'50px'\"\n    [height]=\"'15px'\"\n    (valueChange)=\"onValueChange($event)\"\n  ></app-input>\n\n  <h2>Pre-filled Input</h2>\n  <app-input\n    [value]=\"'Hello, This is an input component.'\"\n    [size]=\"'small'\"\n    (valueChange)=\"onValueChange($event)\"\n  ></app-input>\n\n  <h2>Pre-filled Example 2</h2>\n  <app-input\n    [value]=\"'Hello, This is an input component built using Angular.'\"\n    [size]=\"'large'\"\n    (valueChange)=\"onValueChange($event)\"\n  ></app-input>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -762,7 +849,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

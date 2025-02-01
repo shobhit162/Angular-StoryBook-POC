@@ -21,7 +21,7 @@ export class DynamicCardComponent {
 
   /** Font size */
   @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  size: string = 'medium';
 
   /** Change handler */
   @Output() cardClick = new EventEmitter<string>();

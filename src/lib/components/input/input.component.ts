@@ -18,9 +18,13 @@ export class InputComponent {
   @Input()
   height?: string;
 
+  /** Disabled Input */
+  @Input()
+  disabled: boolean = false;
+
   /** How large should the border radius be? */
   @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  size: string = 'medium';
 
   /**
    * Input content

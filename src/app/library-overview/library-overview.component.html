@@ -1,0 +1,52 @@
+
+<div class="container">
+  <div class="sidebar">
+    <h2>Dynamic Card Presets</h2>
+    <div *ngFor="let preset of dynamicCardPresets" class="preset" (click)="selectPreset(preset)">
+      <h3>{{ preset.title }}</h3>
+    </div>
+
+    <h2>Input Presets</h2>
+    <div *ngFor="let preset of inputPresets" class="preset" (click)="selectPreset(preset)">
+      <h3>{{ preset.title }}</h3>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1>Angular UI Library</h1>
+    <div *ngIf="selectedPreset" class="preset-window">
+      <div class="window-header">
+        <h2>{{ selectedPreset.title }}</h2>
+        <button class="show-code-button" (click)="toggleCode()">
+          {{ showCode ? 'Show Output' : 'Show Code' }}
+        </button>
+      </div>
+      <div class="window-content">
+        <div *ngIf="!showCode">
+          <div *ngIf="selectedPreset.cards">
+            <app-dynamic-card
+              [cards]="selectedPreset.cards"
+              [width]="selectedPreset.width"
+              [height]="selectedPreset.height"
+              [size]="selectedPreset.size"
+              (cardClick)="onDynamicCardClick($event)"
+            ></app-dynamic-card>
+          </div>
+          <div *ngIf="selectedPreset.value !== undefined">
+            <app-input
+              [width]="selectedPreset.width"
+              [height]="selectedPreset.height"
+              [value]="selectedPreset.value"
+              (valueChange)="onInputChange($event)"
+              [disabled]="selectedPreset.disabled"
+              [size]="selectedPreset.size"
+            ></app-input>
+          </div>
+        </div>
+        <div *ngIf="showCode" class="code-container">
+          <pre><code>{{ getCode() }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
